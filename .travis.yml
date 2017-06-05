@@ -1,0 +1,14 @@
+language: cpp
+
+before_install:
+  # Download catch.hpp file to make tests
+  - cd externalLibs/include
+  - curl -L -O https://raw.githubusercontent.com/philsquared/Catch/master/single_include/catch.hpp
+  - cd ../..
+script:
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j 3
+  - make test
+
